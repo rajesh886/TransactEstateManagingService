@@ -4,12 +4,14 @@ const router = express.Router();
 
 router.get('/', passport.authenticate('azure_ad_oauth2'));
 
-router.get('/callback', passport.authenticate('azure_ad_oauth2',
-    {
-        successRedirect: '/api/dashbord',
-        failureRedirect: '/'
-    }),
-    function (req, res) {
-    });
+
+
+// router.get('/api/auth/callback', passport.authenticate('azure_ad_oauth2',
+//     {
+//         successRedirect: '/dashbord',
+//         failureRedirect: '/'
+//     }),
+//     function (req, res) {
+//     });
 
 module.exports = router;

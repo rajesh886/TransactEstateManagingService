@@ -1,0 +1,47 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {fetchDevice} from '../actions';
+
+class DeviceInfo extends Component {
+    componentDidMount(){
+        this.props.fetchDevice();
+    }
+    renderDeviceInfo(){
+        return this.props.deviceInfo.map(deviceinfo => {
+            return(
+                <tr>
+                    <td>{deviceinfo.device_id}</td>
+                    <td>{deviceinfo.instituion_id}</td>
+                    <td>{deviceinfo.category}</td>
+                    <td>{deviceinfo.type}</td>
+                </tr>
+                
+            );
+        })
+    }
+    render(){
+        return(
+            <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th> device_id</th>
+                        <th> institution_id</th>
+                        <th> category </th>
+                        <th> type </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.renderDeviceInfo()}
+                </tbody>
+            </table>
+               
+            </div>
+        );
+    }
+}
+
+function mapStateToProps(state){
+    return { deviceInfo: state.deviceInfo}
+}
+export default connect(mapStateToProps, {fetchDevice})(DeviceInfo);
