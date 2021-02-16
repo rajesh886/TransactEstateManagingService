@@ -11,7 +11,7 @@ class DeviceInfo extends Component {
             return(
                 <tr>
                     <td>{deviceinfo.device_id}</td>
-                    <td>{deviceinfo.instituion_id}</td>
+                    <td>{deviceinfo.institution_id}</td>
                     <td>{deviceinfo.category}</td>
                     <td>{deviceinfo.type}</td>
                 </tr>

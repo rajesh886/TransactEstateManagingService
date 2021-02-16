@@ -15,7 +15,7 @@ export const fetchUser =() => async dispatch => {
 };
 
 export const fetchDevice = () => async dispatch =>{
- const res = await axios.get('/api/deviceInfo');
+ const res = await axios.get('api/deviceprofiles');
 
  dispatch({type: FETCH_DEVICE, payload:res.data});
 };

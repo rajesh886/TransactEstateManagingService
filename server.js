@@ -87,15 +87,13 @@ app.get('/api/deviceInfo', async (req,res) => {
     console.log("Asdadas");
     try{
         const deviceProfile = await DeviceInfo.find();
-
         res.json(deviceProfile);
     }catch(err){
         res.send(500).send("wabalabadubdub");
     }
    
 });
-
-
+require('./routes/api/deviceRoutes')(app);
 
 //Code and Discard
 // app.get('/api/auth/callback', passport.authenticate('azure_ad_oauth2',

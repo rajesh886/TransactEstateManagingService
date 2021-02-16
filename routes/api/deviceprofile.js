@@ -82,4 +82,15 @@ router.get('/deviceprofiles/institutions/:institution_id', async (req, res) => {
     }
 });
 
+// app.get('/api/deviceInfo', async (req,res) => {
+//     console.log("Asdadas");
+//     try{
+//         const deviceProfile = await DeviceInfo.find();
+//         res.json(deviceProfile);
+//     }catch(err){
+//         res.send(500).send("wabalabadubdub");
+//     }
+   
+// });
+
 module.exports = router;
