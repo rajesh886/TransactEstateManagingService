@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return <li><a href="/api/auth">Login with Azure</a></li>;
       default:
-        return <li><a href="/#">{this.props.auth.given_name}</a></li>
+        return <div><li><a href="/#">User: {this.props.auth.given_name}</a></li><li><a href="/api/logout">Logout</a></li></div>
     }
   }
   

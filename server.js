@@ -93,6 +93,12 @@ app.get('/api/deviceInfo', async (req,res) => {
     }
    
 });
+
+app.get('/api/logout', (req,res) => {
+    req.logOut();
+    res.redirect("/");
+});
+
 require('./routes/api/deviceRoutes')(app);
 
 //Code and Discard
