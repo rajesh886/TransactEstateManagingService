@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './Header';
-import Dashboard from './Dashboard';
+//import Dashboard from './Dashboard';
 import Login from './Login';
+import Dashboard from './NewDashboard';
 
 import {connect} from 'react-redux';
 import * as actions from '../actions';
@@ -15,12 +16,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <BrowserRouter>
           <div>
-            <Header />
+            <Route exact path="/" component={Header}/>
             <Route exact path="/" component={Login}/>
-            <Route exact path="/dashboard" component={Dashboard}/>
+            <Route path="/dashboard" component={Dashboard}/>
           </div>
         </BrowserRouter>
       </div>
