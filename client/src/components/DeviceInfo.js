@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchDevice} from '../actions';
 import TableInfo from './TableInfo';
+import ClickableTable from './ClickableTable';
 
 class DeviceInfo extends Component {
      componentDidMount(){
@@ -12,7 +13,7 @@ class DeviceInfo extends Component {
          console.log(this.props)
          return (
              <div>
-                <TableInfo {...this.props}/>
+                <ClickableTable {...this.props}/>
              </div>
          );
      }
