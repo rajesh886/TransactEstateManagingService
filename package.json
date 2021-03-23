@@ -26,7 +26,9 @@
     "passport": "^0.4.1",
     "passport-azure-ad": "^4.3.0",
     "passport-azure-ad-oauth2": "0.0.4",
-    "react-bootstrap": "^1.5.0"
+    "react-bootstrap": "^1.5.0",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table2-paginator": "^2.1.2"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

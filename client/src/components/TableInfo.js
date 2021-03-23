@@ -18,6 +18,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import { useDispatch } from 'react-redux';
+import { Typography } from '@material-ui/core';
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -92,7 +93,14 @@ const useStyles2 = makeStyles({
     minWidth: 500,
   },
 });
-
+  function renderSwitch(row) {
+  switch(row) {
+    case 'offline':
+      return <Typography color="error">{row}</Typography>
+    default:
+      return <Typography color="primary">{row}</Typography>
+  }
+}
 export default function CustomPaginationActionsTable(props) {
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
@@ -120,6 +128,7 @@ export default function CustomPaginationActionsTable(props) {
     setPage(0);
   };
 
+  
   return (
     <TableContainer component={Paper}>
       <Table stickyHeader className={classes.table} aria-label="custom pagination table">
@@ -151,7 +160,7 @@ export default function CustomPaginationActionsTable(props) {
                 {row.typeDev}
               </TableCell>
               <TableCell style={{ width: 160 }} align="left">
-                {row.status}
+              {renderSwitch(row.status)}
               </TableCell>
             </TableRow>
           ))}

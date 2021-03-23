@@ -12,6 +12,31 @@ module.exports = (app) => {
         }
        
     });
+    
+    app.get('/api/deviceprofiles/onlinecount', async (req, res) => {
+        try {
+            // await DeviceInfo.countDocuments({ status: 'online' }, function (err, c) {
+            //     res.json({ onlineDevices: "c" });
+            // });
+            const count = await DeviceInfo.countDocuments({ status: 'online' });
+            res.json(count);
+        } catch (err) {
+            console.log(err.message);
+            res.status(500).send('Server Error');
+        }
+    });
+    app.get('/api/deviceprofiles/offlinecount', async (req, res) => {
+        try {
+            // await DeviceInfo.countDocuments({ status: 'online' }, function (err, c) {
+            //     res.json({ onlineDevices: "c" });
+            // });
+            const count = await DeviceInfo.countDocuments({ status: 'offline' });
+            res.json(count);
+        } catch (err) {
+            console.log(err.message);
+            res.status(500).send('Server Error');
+        }
+    });
 
     //@access private
     app.get('/api/deviceprofiles/:status', async (req, res) => {
@@ -56,4 +81,5 @@ module.exports = (app) => {
             res.status(500).send('Server Error');
         }
     });
+    
 }

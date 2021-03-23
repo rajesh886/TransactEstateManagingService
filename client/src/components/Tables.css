@@ -1,0 +1,21 @@
+/* Inactive tab */
+.summaryTab ul> li >a {
+    background-color: #D50032;
+    color: white;
+    
+}
+.summaryTab a:hover {
+    background-color: #D50032;
+    color: white
+}
+
+/* Active tab */
+/* .summaryTab ul > li.active > a,
+.summaryTab ul > li.active > a:hover,
+.summaryTab ul > li.active > a:focus { */
+    .summaryTab li.active a{
+/* .summaryTab li.active a:hover,
+.summaryTab li.active a:focus { */
+    background-color: #D50032;
+    color: white;
+}

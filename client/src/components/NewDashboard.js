@@ -23,7 +23,9 @@ import { connect } from 'react-redux';
 import Aboutus from './Aboutus';
 import Homepage from './Homepage';
 import TableInfo from './TableInfo';
- 
+import Maps from './Maps';
+import ClickableTable from './ClickableTable';
+
 import Box from '@material-ui/core/Box';
 
 function Dashboard(props) {
@@ -42,9 +44,9 @@ function Dashboard(props) {
 
     switch(tabs) {
         case 'home':
-            return <Homepage />
-        case 'aboutus':
-            return <TableInfo {...props} />
+            return <Homepage/>
+        case 'maps':
+            return <Maps />
         default:
             break;
     }
@@ -104,11 +106,11 @@ function Dashboard(props) {
                 </ListItemIcon>
                 <ListItemText disableTypography primary={<Typography style={{color:'#000000'}}>Dashboard</Typography>}/>
                 </ListItem>
-                <ListItem button onClick={e=>setTabs("aboutus")}>
+                <ListItem button onClick={e=>setTabs("maps")}>
                 <ListItemIcon className={classes.icon}>
                     <InfoIcon />
                 </ListItemIcon>
-                <ListItemText primary="About Us" />
+                <ListItemText primary="Maps" />
                 </ListItem>
                 <ListItem button>
                 <ListItemIcon className={classes.icon}>
