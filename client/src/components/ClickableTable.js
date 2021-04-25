@@ -30,27 +30,32 @@ function ClickableTable(props) {
     {
       dataField: 'device_id',
       text: 'Device ID',
-      headerStyle: { textAlign: 'center' }
+      headerStyle: { textAlign: 'center' },
+      sort: true
     },
     {
       dataField: 'university_id',
       text: 'University ID',
-      headerStyle: { textAlign: 'center' }
+      headerStyle: { textAlign: 'center' },
+      sort: true
     },
     {
       dataField: 'category',
       text: 'Category',
-      headerStyle: { textAlign: 'center' }
+      headerStyle: { textAlign: 'center' },
+      sort: true
     },
     {
       dataField: 'type',
       text: 'Type',
-      headerStyle: { textAlign: 'center' }
+      headerStyle: { textAlign: 'center' },
+      sort: true
     },
     {
       dataField: 'status',
       text: 'Status',
-      headerStyle: { textAlign: 'center' }
+      headerStyle: { textAlign: 'center' },
+      sort: true
     }
   ];
 
@@ -104,8 +109,8 @@ function ClickableTable(props) {
   const ModalContent = () => {
     return (
       <Modal {...props}
-        className="custom-modal "
-        size="lg"
+        className="custom-modal"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={show} onHide={handleClose} backdrop="static"
