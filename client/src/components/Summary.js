@@ -1,4 +1,6 @@
 import ListGroup from 'react-bootstrap/ListGroup'
+import Badge from 'react-bootstrap/Badge'
+
 
 function Summary(modalInfo) {
   return (
@@ -11,7 +13,6 @@ function Summary(modalInfo) {
       <ListGroup.Item>Firware Version:  {modalInfo.firware_Version}</ListGroup.Item>
       <ListGroup.Item>License Key:  {modalInfo.license_key}</ListGroup.Item>
       <ListGroup.Item>License Expiry Date:  {modalInfo.license_expiry}</ListGroup.Item>
-      <ListGroup.Item>Error message:  {modalInfo.error}</ListGroup.Item>
       <ListGroup.Item>Last Status Time:  {modalInfo.status_date_time}</ListGroup.Item>
 
     </ListGroup>

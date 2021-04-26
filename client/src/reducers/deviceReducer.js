@@ -1,10 +1,11 @@
-import { FETCH_DEVICE, FETCH_CATEGORY, FETCH_ONLINECOUNT, FETCH_OFFLINECOUNT } from '../actions/types';
+import { FETCH_DEVICE, FETCH_CATEGORY, FETCH_ONLINECOUNT, FETCH_OFFLINECOUNT,FETCH_HISTORY } from '../actions/types';
 
 const initialState = {
     devicesInfos: [],
     onlineCount: null,
     offlineCount: null,
-    devicesCategory: []
+    devicesCategory: [],
+    devicesHistory: [],
 }
 
 export default function (state = initialState, action) {
@@ -31,6 +32,11 @@ export default function (state = initialState, action) {
                 ...state,
                 devicesCategory: payload
             };
+        case FETCH_HISTORY:
+            return {
+                ...state,
+                devicesHistory: payload
+             };
         default:
             return state;
     }
