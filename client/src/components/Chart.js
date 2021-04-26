@@ -1,32 +1,23 @@
-import React, { Component, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { fetchCategory } from '../actions';
-import { Bar, Line, Pie } from 'react-chartjs-2';
-import clsx from 'clsx';
-import useStyles from './styles';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import React, { useEffect, useState } from 'react';
+import { Bar, Pie } from 'react-chartjs-2';
 import './Chart.css';
 
 function Chart(props) {
 
-    const classes = useStyles();
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
     const [deviceNum, setDeviceNum] = useState([]);
+    const [offlineCount, setOfflineCount] = useState([]);
+    const [onlineCount, setOnlineCount] = useState([]);
 
     useEffect(() => {
         setDeviceNum(props.deviceCategory)
+        setOfflineCount(props.deviceOfflineCount)
+        setOnlineCount(props.deviceOnlineCount)
     })
-
-    console.log(deviceNum)
 
     const chartData = {
         labels: ['Campus Access Devices', 'Point of Sale', 'Door Access', 'Video Survelliance', 'Smart Terminals'],
         datasets: [
             {
-                label: 'Number of Devices',
                 data:
                     [
                         deviceNum.campusAccessDevices,
@@ -48,86 +39,82 @@ function Chart(props) {
         ]
     }
 
+    const onlineOfflineData = {
+        labels: ['Online', 'Offline'],
+        datasets: [
+            {
+                data:
+                    [
+                        onlineCount,
+                        offlineCount
+                    ],
+                backgroundColor: [
+                    'rgb(0,128,0)',
+                    'rgb(255,0,0)'
+                ]
+            }
+        ]
+    }
 
     return (
-        <div className="chart" >
+        <div className="chart">
+            <div id="PieChart">
+                <Pie data={onlineOfflineData}
+                    options={{
+                        title: {
+                            display: true,
+                            text: 'Device Statuses',
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: true,
+                            position: 'right'
+                        },
+                        label: {
+                            display: false
+                        },
 
-            <Grid container spacing={12}>
-
-                <Grid item xs={12} md={8} lg={6}>
-                    <Bar
-                        data={chartData}
-
-                        options={{
-                            title: {
-                                display: true,
-                                text: 'Number of Devices In UTA',
-                                fontSize: 25
-                            },
-                            legend: {
-                                display: true,
-                                position: 'right'
-                            },
-                            responsive: true,
-
-                            scales: {
-                                yAxes: [
-                                    {
-                                        ticks: {
-                                            autoSkip: true,
-                                            maxTicksLimit: 10,
-                                            beginAtZero: true
-                                        },
-                                        gridLines: {
-                                            display: false
-                                        }
+                    }}
+                />
+            </div>
+            <div id="BarChart">
+                <Bar data={chartData}
+                    options={{
+                        title: {
+                            display: true,
+                            text: 'Devices by Type',
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: false,
+                        },
+                        responsive: true,
+                        scales: {
+                            yAxes: [
+                                {
+                                    ticks: {
+                                        autoSkip: true,
+                                        maxTicksLimit: 10,
+                                        beginAtZero: true
+                                    },
+                                    gridLines: {
+                                        display: true
                                     }
-                                ],
-                                xAxes: [
-                                    {
-                                        gridLines: {
-                                            display: false
-                                        }
+                                }
+                            ],
+                            xAxes: [
+                                {
+                                    gridLines: {
+                                        display: false
                                     }
-                                ]
-                            }
-                        }}
-                    />
-                </Grid>
-
-
-                <Grid item xs={12} md={8} lg={7}>
-                    <Pie
-                        data={chartData}
-
-                        options={{
-                            title: {
-                                display: true,
-                                text: 'Number of Devices In UTA',
-                                fontSize: 25
-                            },
-                            legend: {
-                                display: true,
-                                position: 'right'
-                            },
-                            label: {
-                                display: false
-                            },
-
-                        }}
-                    />
-                </Grid>
-
-
-            </Grid>
-
-
-
-
-
+                                }
+                            ]
+                        }
+                    }}
+                />
+            </div>
         </div>
     )
-
 }
 
 export default Chart;
